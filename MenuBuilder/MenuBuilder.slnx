@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../MenuBuilder.Abstraction/MenuBuilder.Abstraction.csproj" />
+  <Project Path="MenuBuilder.csproj" />
+</Solution>
