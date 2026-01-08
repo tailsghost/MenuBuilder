@@ -63,7 +63,6 @@ public class Builder
                 item.Description = dto.Description;
                 item.AddContents(getContent(item));
                 item.TopParent = parent?.TopParent;
-                item.Id = Guid.Parse(dto.Id);
                 item.Image = new BitmapImage(
                     new Uri("pack://application:,,,/FBDEditor;component/Assets/TagItem.png"));
                 parent.AddChildrenItem(item);
@@ -78,7 +77,6 @@ public class Builder
                 menu.Image = new BitmapImage(
                     new Uri("pack://application:,,,/FBDEditor;component/Assets/Project_Property_Icon.png"));
                 menu.Commands = getCommand(menu).ToList();
-                menu.Id = Guid.Parse(dto.Id);
                 parent.AddChildrenList(menu);
                 CreateNode(dto.Fields, parentList,getCommand,getContent, menu);
             }
@@ -106,7 +104,6 @@ public class Builder
         {
             current = new MenuItemDto
             {
-                Id = Guid.NewGuid().ToString(),
                 Name = dir.Name,
                 Title = dir.Name
             };

@@ -4,7 +4,6 @@ namespace MenuBuilder.Abstraction.Model;
 
 public class ConnectorDto
 {
-    public Guid Id { get; init; }
     public Color Color { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
@@ -15,8 +14,7 @@ public class ConnectorDto
     public bool IsTemp { get; set; }
     public double Height { get; set; }
 
-    public ConnectorDto(Guid? id = null)
+    public ConnectorDto()
     {
-        Id = id ?? Guid.NewGuid();
     }
 }
