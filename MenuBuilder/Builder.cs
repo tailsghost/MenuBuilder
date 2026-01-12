@@ -3,7 +3,6 @@ using MenuBuilder.Abstraction.Model;
 using Newtonsoft.Json;
 using RadTreeView;
 using RadTreeView.Commands;
-using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace MenuBuilder;
@@ -17,8 +16,46 @@ public class Builder
     public Builder(string mainMenuPath)
     {
         _mainMenuPath = mainMenuPath;
+        DirectoryHelper.Add += BuilderHelper.Add;
         _directory = DirectoryHelper.GetDirectoryChild(mainMenuPath);
-        CreateMenuItem();
+    }
+
+    public bool AnalysisDuplicates(out string error)
+    {
+        error = $"Обнаружены повторяющиеся файлы и папки!{Environment.NewLine}";
+        var find = false;
+        var count = 0;
+        foreach (var item in BuilderHelper.GetDuplicates())
+        {
+            if (item.Value.Count > 1)
+            {
+                find = true;
+                foreach(var it in item.Value)
+                {
+                    if (it is MenuDirectoryInfo dir)
+                    {
+                        error += $"Директория - {dir.Path + Environment.NewLine}";
+                    }
+                    else if (it is MenuFileInfo file)
+                    {
+                        error += $"Файл - {file.Path + Environment.NewLine}";
+                    }
+                    count++;
+                }
+            }
+        }
+
+        if (!find)
+        {
+            error = string.Empty;
+            CreateMenuItem();
+        }
+        else
+        {
+            error += $"Всего повторяющихся папок и файлов: {count}";
+        }
+        DirectoryHelper.Add -= BuilderHelper.Add;
+        return find;
     }
 
     public MenuDirectoryInfo GetDirectory() => _directory;
