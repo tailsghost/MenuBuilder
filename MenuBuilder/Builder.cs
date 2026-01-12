@@ -3,6 +3,7 @@ using MenuBuilder.Abstraction.Model;
 using Newtonsoft.Json;
 using RadTreeView;
 using RadTreeView.Commands;
+using System.IO;
 using System.Windows.Media.Imaging;
 
 namespace MenuBuilder;
@@ -18,49 +19,12 @@ public class Builder
         _mainMenuPath = mainMenuPath;
         DirectoryHelper.Add += BuilderHelper.Add;
         _directory = DirectoryHelper.GetDirectoryChild(mainMenuPath);
-    }
-
-    public bool AnalysisDuplicates(out string error)
-    {
-        error = $"Обнаружены повторяющиеся файлы и папки!{Environment.NewLine}";
-        var find = false;
-        var count = 0;
-        foreach (var item in BuilderHelper.GetDuplicates())
-        {
-            if (item.Value.Count > 1)
-            {
-                find = true;
-                foreach(var it in item.Value)
-                {
-                    if (it is MenuDirectoryInfo dir)
-                    {
-                        error += $"Директория - {dir.Path + Environment.NewLine}";
-                    }
-                    else if (it is MenuFileInfo file)
-                    {
-                        error += $"Файл - {file.Path + Environment.NewLine}";
-                    }
-                    count++;
-                }
-            }
-        }
-
-        if (!find)
-        {
-            error = string.Empty;
-            CreateMenuItem();
-        }
-        else
-        {
-            error += $"Всего повторяющихся папок и файлов: {count}";
-        }
         DirectoryHelper.Add -= BuilderHelper.Add;
-        return find;
     }
 
     public MenuDirectoryInfo GetDirectory() => _directory;
 
-    private void CreateMenuItem()
+    public void CreateMenuItem()
     {
         var menuItem = new MenuItemDto();
         menuItem.Name = _directory.Name;
@@ -136,6 +100,9 @@ public class Builder
             var json = System.IO.File.ReadAllText(nodeFile.Path);
             current = JsonConvert.DeserializeObject<MenuItemDto>(json)
                       ?? new MenuItemDto();
+            var name = Path.GetFileNameWithoutExtension(nodeFile.Name);
+            current.Name = name;
+            current.Title = name;
         }
         else
         {
