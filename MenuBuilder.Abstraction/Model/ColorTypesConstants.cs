@@ -23,15 +23,18 @@ public class ColorTypesConstants
     public static Color ANY_NUM = Color.DarkSeaGreen;
     public static Color ANY_REAL = Color.GreenYellow;
 
+
     public static Dictionary<string, Color> ColorsConvert = new()
     {
         { AllowedTypeConstants.ANY, ANY },
         { AllowedTypeConstants.BOOL, BOOL },
         { AllowedTypeConstants.SHORT, INT16 },
+        { AllowedTypeConstants.USHORT, INT16 },
         { AllowedTypeConstants.INT16, INT16 },
         { AllowedTypeConstants.INT32, INT32 },
         { AllowedTypeConstants.INT, INT32 },
         { AllowedTypeConstants.UINT32, UINT32 },
+        { AllowedTypeConstants.UINT, UINT32 },
         { AllowedTypeConstants.INT64, INT64 },
         { AllowedTypeConstants.LONG, INT64 },
         { AllowedTypeConstants.UINT64, UINT64 },
