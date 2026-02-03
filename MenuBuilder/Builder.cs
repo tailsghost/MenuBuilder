@@ -38,7 +38,7 @@ public class Builder
         _items = menuItem;
     }
 
-    public void CreateMenu(IList<RowViewModelList> parentList, Func<RowViewModel, IEnumerable<Content>> getContent, Func<RowViewModel, IEnumerable<CommandBase>> getCommand)
+    public void CreateMenu(IList<RowViewModelList> parentList, Func<RowViewModel, IEnumerable<Content>> getContent, Func<RowViewModel, IEnumerable<RadTreeCommand>> getCommand)
     {
         var topMenu = new RowViewModelList(_items.Fields.Count, parentList);
         topMenu.TopParent = topMenu;
@@ -53,7 +53,7 @@ public class Builder
     }
 
 
-    private void CreateNode(List<MenuItemDto> dtos, IList<RowViewModelList> parentList, Func<RowViewModelList, IEnumerable<CommandBase>> getCommand, Func<RowViewModel, IEnumerable<Content>> getContent, RowViewModelList? parent = null)
+    private void CreateNode(List<MenuItemDto> dtos, IList<RowViewModelList> parentList, Func<RowViewModelList, IEnumerable<RadTreeCommand>> getCommand, Func<RowViewModel, IEnumerable<Content>> getContent, RowViewModelList? parent = null)
     {
         foreach (var dto in dtos)
         {
