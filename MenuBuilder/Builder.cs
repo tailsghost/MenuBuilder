@@ -26,8 +26,10 @@ public class Builder
 
     public void CreateMenuItem()
     {
-        var menuItem = new MenuItemDto();
-        menuItem.Name = _directory.Name;
+        var menuItem = new MenuItemDto
+        {
+            Name = _directory.Name
+        };
         foreach (var child in _directory.Children)
         {
             var item = GetMenuItem(child, null);
@@ -38,22 +40,20 @@ public class Builder
         _items = menuItem;
     }
 
-    public void CreateMenu(IList<RowViewModelList> parentList, Func<RowViewModel, IEnumerable<Content>> getContent, Func<RowViewModel, IEnumerable<RadTreeCommand>> getCommand)
+    public void CreateMenu(IList<RowViewModelList> parentList)
     {
         var topMenu = new RowViewModelList(_items.Fields.Count, parentList);
         topMenu.TopParent = topMenu;
         topMenu.Title = _items.Name;
         topMenu.Description = _items.Description;
-        topMenu.AddContents(getContent(topMenu));
         topMenu.Image = new BitmapImage(
             new Uri("pack://application:,,,/FBDEditor;component/Assets/Project_Property_Icon.png"));
-        topMenu.Commands = getCommand(topMenu).ToList();
         parentList.Add(topMenu);
-        CreateNode(_items.Fields, parentList,getCommand,getContent, topMenu);
+        CreateNode(_items.Fields, parentList, topMenu);
     }
 
 
-    private void CreateNode(List<MenuItemDto> dtos, IList<RowViewModelList> parentList, Func<RowViewModelList, IEnumerable<RadTreeCommand>> getCommand, Func<RowViewModel, IEnumerable<Content>> getContent, RowViewModelList? parent = null)
+    private void CreateNode(List<MenuItemDto> dtos, IList<RowViewModelList> parentList, RowViewModelList? parent = null)
     {
         foreach (var dto in dtos)
         {
@@ -62,7 +62,6 @@ public class Builder
                 var item = new RowViewModelItem(dtos.Count, parentList, parent);
                 item.Title = dto.Name;
                 item.Description = dto.Description;
-                item.AddContents(getContent(item));
                 item.TopParent = parent?.TopParent;
                 item.Image = new BitmapImage(
                     new Uri("pack://application:,,,/FBDEditor;component/Assets/TagItem.png"));
@@ -74,12 +73,10 @@ public class Builder
                 menu.TopParent = parent?.TopParent;
                 menu.Title = dto.Name;
                 menu.Description = dto.Description;
-                menu.AddContents(getContent(menu));
                 menu.Image = new BitmapImage(
                     new Uri("pack://application:,,,/FBDEditor;component/Assets/Project_Property_Icon.png"));
-                menu.Commands = getCommand(menu).ToList();
                 parent.AddChildrenList(menu);
-                CreateNode(dto.Fields, parentList,getCommand,getContent, menu);
+                CreateNode(dto.Fields, parentList, menu);
             }
         }
     }
