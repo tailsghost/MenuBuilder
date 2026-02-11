@@ -40,10 +40,11 @@ public class Builder
         _items = menuItem;
     }
 
-    public void CreateMenu(IList<RowViewModelList> parentList)
+    public void CreateMenu(IList<RowViewModelList> parentList,RadTreeViewModel owner)
     {
         var topMenu = new RowViewModelList(_items.Fields.Count, parentList);
         topMenu.TopParent = topMenu;
+        topMenu.Owner = owner;
         topMenu.Title = _items.Name;
         topMenu.Description = _items.Description;
         topMenu.Image = new BitmapImage(
