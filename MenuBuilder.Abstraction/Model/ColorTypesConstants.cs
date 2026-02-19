@@ -46,5 +46,6 @@ public class ColorTypesConstants
         { AllowedTypeConstants.NONE, NONE },
         { AllowedTypeConstants.ANY_NUM, ANY_NUM },
         { AllowedTypeConstants.ANY_REAL, ANY_REAL },
+        { AllowedTypeConstants.REAL, ANY_REAL },
     };
 }

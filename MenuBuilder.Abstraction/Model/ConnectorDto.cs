@@ -9,6 +9,7 @@ public class ConnectorDto
     public string Description { get; set; }
     public string AltName { get; set; }
     public string ConnectorType { get; set; }
+    public string ConcreteConnectorType { get; set; } = "INT";
     public int Cell { get; set; }
     public double Width { get; set; }
     public bool IsTemp { get; set; }
