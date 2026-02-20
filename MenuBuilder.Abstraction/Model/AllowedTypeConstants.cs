@@ -7,6 +7,7 @@ public class AllowedTypeConstants
     public const string ANY_NUM = "ANY_NUM";
     public const string ANY_REAL = "ANY_REAL";
     public const string REAL = "REAL";
+    public const string BYTE = "BYTE";
     public const string INT8 = "INT8";
     public const string UINT8 = "UINT8";
     public const string SHORT = "SHORT";
