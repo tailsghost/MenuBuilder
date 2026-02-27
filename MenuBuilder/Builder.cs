@@ -40,7 +40,7 @@ public class Builder
         _items = menuItem;
     }
 
-    public void CreateMenu(IList<RowViewModelList> parentList,RadTreeViewModel owner)
+    public void CreateMenu(IList<RowViewModelList> parentList, RowViewModelList? topList, RadTreeViewModel owner)
     {
         var topMenu = new RowViewModelList(_items.Fields.Count, parentList);
         topMenu.TopParent = topMenu;
@@ -49,7 +49,14 @@ public class Builder
         topMenu.Description = _items.Description;
         topMenu.Image = new BitmapImage(
             new Uri("pack://application:,,,/FBDEditor;component/Assets/Project_Property_Icon.png"));
-        parentList.Add(topMenu);
+        if(topList == null)
+        {
+            parentList.Add(topMenu);
+        }
+        else
+        {
+            topList.AddChildrenList(topMenu);
+        }
         CreateNode(_items.Fields, parentList, topMenu);
     }
 
