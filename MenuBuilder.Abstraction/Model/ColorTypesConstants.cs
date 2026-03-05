@@ -17,11 +17,10 @@ public class ColorTypesConstants
     public static Color UINT64 = Color.Aqua;
     public static Color TIME = Color.DarkTurquoise;
     public static Color STRING = Color.Moccasin;
-    public static Color FLOAT = Color.CadetBlue;
+    public static Color REAL = Color.CadetBlue;
     public static Color DATE = Color.DarkKhaki;
     public static Color NONE = Color.Red;
     public static Color ANY_NUM = Color.DarkSeaGreen;
-    public static Color ANY_REAL = Color.GreenYellow;
 
 
     public static Dictionary<string, Color> ColorsConvert = new()
@@ -41,12 +40,11 @@ public class ColorTypesConstants
         { AllowedTypeConstants.Ulong, UINT64 },
         { AllowedTypeConstants.TIME, TIME },
         {AllowedTypeConstants.STRING, STRING },
-        { AllowedTypeConstants.FLOAT, FLOAT },
+        { AllowedTypeConstants.REAL, REAL },
+        { AllowedTypeConstants.FLOAT, REAL },
         { AllowedTypeConstants.DATE, DATE },
         { AllowedTypeConstants.NONE, NONE },
         { AllowedTypeConstants.ANY_NUM, ANY_NUM },
-        { AllowedTypeConstants.ANY_REAL, ANY_REAL },
          { AllowedTypeConstants.BYTE, UINT8 },
-        { AllowedTypeConstants.REAL, ANY_REAL },
     };
 }
