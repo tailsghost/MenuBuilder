@@ -79,6 +79,7 @@ public class Builder
             {
                 var menu = new RowViewModelList(dtos.Count, parentList, parent);
                 menu.TopParent = parent?.TopParent;
+                menu.Owner = parent?.Owner;
                 menu.Title = dto.Name;
                 menu.Description = dto.Description;
                 menu.Image = new BitmapImage(
