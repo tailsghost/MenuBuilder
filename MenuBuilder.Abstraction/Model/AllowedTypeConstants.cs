@@ -10,7 +10,7 @@ public class AllowedTypeConstants
     public const string FLOAT = "FLOAT";
     public const string BYTE = "BYTE";
     public const string INT8 = "INT8";
-    public const string UINT8 = "UINT8";
+    public const string SBYTE = "SBYTE";
     public const string SHORT = "SHORT";
     public const string USHORT = "USHORT";
     public const string INT16 = "INT16";
@@ -27,5 +27,6 @@ public class AllowedTypeConstants
     public const string TIME = "TIME";
     public const string STRING = "STRING";
     public const string DATE = "DATE";
+    public const string DATETIME = "DATETIME";
     public const string NONE = "NONE";
 }

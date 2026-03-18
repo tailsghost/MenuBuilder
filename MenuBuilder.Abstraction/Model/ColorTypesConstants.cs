@@ -8,7 +8,7 @@ public class ColorTypesConstants
     public static Color ANY = Color.White;
     public static Color BOOL = Color.AliceBlue;
     public static Color INT8 = Color.DeepSkyBlue;
-    public static Color UINT8 = Color.LightSkyBlue;
+    public static Color SINT8 = Color.LightSkyBlue;
     public static Color INT16 = Color.Cornsilk;
     public static Color UINT16 = Color.LightCoral;
     public static Color INT32 = Color.AntiqueWhite;
@@ -45,6 +45,8 @@ public class ColorTypesConstants
         { AllowedTypeConstants.DATE, DATE },
         { AllowedTypeConstants.NONE, NONE },
         { AllowedTypeConstants.ANY_NUM, ANY_NUM },
-         { AllowedTypeConstants.BYTE, UINT8 },
+         { AllowedTypeConstants.BYTE, INT8 },
+         { AllowedTypeConstants.SBYTE, SINT8 },
+         { AllowedTypeConstants.DATETIME, DATE },
     };
 }
