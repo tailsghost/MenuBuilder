@@ -28,5 +28,6 @@ public class AllowedTypeConstants
     public const string STRING = "STRING";
     public const string DATE = "DATE";
     public const string DATETIME = "DATETIME";
+    public const string DT = "DT";
     public const string NONE = "NONE";
 }

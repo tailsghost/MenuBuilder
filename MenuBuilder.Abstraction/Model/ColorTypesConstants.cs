@@ -19,6 +19,7 @@ public class ColorTypesConstants
     public static Color STRING = Color.Moccasin;
     public static Color REAL = Color.CadetBlue;
     public static Color DATE = Color.DarkKhaki;
+    public static Color DATETIME = Color.DarkGoldenrod;
     public static Color NONE = Color.Red;
     public static Color ANY_NUM = Color.DarkSeaGreen;
 
@@ -47,6 +48,7 @@ public class ColorTypesConstants
         { AllowedTypeConstants.ANY_NUM, ANY_NUM },
          { AllowedTypeConstants.BYTE, INT8 },
          { AllowedTypeConstants.SBYTE, SINT8 },
-         { AllowedTypeConstants.DATETIME, DATE },
+         { AllowedTypeConstants.DATETIME, DATETIME },
+         { AllowedTypeConstants.DT, DATETIME },
     };
 }
