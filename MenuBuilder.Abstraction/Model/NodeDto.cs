@@ -6,6 +6,7 @@ public class NodeDto : MenuItemDto
 {
     public string AltName { get; set; } = string.Empty;
     public bool IsUnique { get; set; } = false;
+    public bool AddingInclude { get; set; } = true;
     public List<ConnectorDto> Inputs { get; set; } = [];
     public List<ConnectorDto> Outputs { get; set; } = [];
     public string NodeViewModelType { get; set; }
