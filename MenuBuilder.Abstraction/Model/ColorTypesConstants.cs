@@ -13,6 +13,8 @@ public class ColorTypesConstants
     public static Color UINT16 = Color.LightCoral;
     public static Color INT32 = Color.AntiqueWhite;
     public static Color UINT32 = Color.Aquamarine;
+    public static Color DINT = Color.MediumAquamarine;
+    public static Color UDINT = Color.MediumSeaGreen;
     public static Color INT64 = Color.Beige;
     public static Color UINT64 = Color.Aqua;
     public static Color TIME = Color.DarkTurquoise;
@@ -50,5 +52,7 @@ public class ColorTypesConstants
          { AllowedTypeConstants.SBYTE, SINT8 },
          { AllowedTypeConstants.DATETIME, DATETIME },
          { AllowedTypeConstants.DT, DATETIME },
+         { AllowedTypeConstants.DINT, DINT },
+         { AllowedTypeConstants.UDINT, UDINT },
     };
 }

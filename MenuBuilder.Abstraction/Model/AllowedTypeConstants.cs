@@ -30,4 +30,6 @@ public class AllowedTypeConstants
     public const string DATETIME = "DATETIME";
     public const string DT = "DT";
     public const string NONE = "NONE";
+    public const string DINT = "DINT";
+    public const string UDINT = "UDINT";
 }
