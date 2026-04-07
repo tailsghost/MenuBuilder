@@ -8,5 +8,6 @@ public class MenuItemDto
     public string DescriptionShort { get; set; } = string.Empty;
     public string Name { get; set; } = string.Empty;
     public bool IsOpenChildren { get; set; }
+    public string AltName { get; set; } = string.Empty;
     public List<MenuItemDto> Fields { get; set; } = [];
 }

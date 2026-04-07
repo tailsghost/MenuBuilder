@@ -4,7 +4,6 @@ namespace MenuBuilder.Abstraction.Model;
 
 public class NodeDto : MenuItemDto
 {
-    public string AltName { get; set; } = string.Empty;
     public bool IsUnique { get; set; } = false;
     public bool AddingInclude { get; set; } = true;
     public List<ConnectorDto> Inputs { get; set; } = [];

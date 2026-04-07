@@ -70,6 +70,7 @@ public class Builder
                 var item = new RowViewModelItem(dtos.Count, parentList, parent);
                 item.Title = dto.Name;
                 item.Description = dto.Description;
+                item.Tag = dto;
                 item.TopParent = parent?.TopParent;
                 item.Image = new BitmapImage(
                     new Uri("pack://application:,,,/FBDEditor;component/Assets/TagItem.png"));
@@ -81,6 +82,7 @@ public class Builder
                 menu.TopParent = parent?.TopParent;
                 menu.Owner = parent?.Owner;
                 menu.Title = dto.Name;
+                menu.Tag = dto;
                 menu.Description = dto.Description;
                 menu.Image = new BitmapImage(
                     new Uri("pack://application:,,,/FBDEditor;component/Assets/Project_Property_Icon.png"));
