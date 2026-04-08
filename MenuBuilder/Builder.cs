@@ -68,7 +68,7 @@ public class Builder
             if (dto.Fields.Count == 0)
             {
                 var item = new RowViewModelItem(dtos.Count, parentList, parent);
-                item.Title = dto.Name;
+                item.Title = !string.IsNullOrEmpty(dto.AltName) ? dto.AltName : dto.Name;
                 item.Description = dto.Description;
                 item.TopParent = parent?.TopParent;
                 item.Image = new BitmapImage(
@@ -80,7 +80,7 @@ public class Builder
                 var menu = new RowViewModelList(dtos.Count, parentList, parent);
                 menu.TopParent = parent?.TopParent;
                 menu.Owner = parent?.Owner;
-                menu.Title = dto.Name;
+                menu.Title = !string.IsNullOrEmpty(dto.AltName) ? dto.AltName : dto.Name;
                 menu.Description = dto.Description;
                 menu.Image = new BitmapImage(
                     new Uri("pack://application:,,,/FBDEditor;component/Assets/Project_Property_Icon.png"));
