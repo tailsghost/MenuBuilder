@@ -5,7 +5,7 @@ namespace MenuBuilder.Abstraction.Model;
 public class ColorTypesConstants
 {
 
-    public static Color ANY = Color.White;
+    public static Color ANY = Color.Gray;
     public static Color BOOL = Color.AliceBlue;
     public static Color INT8 = Color.DeepSkyBlue;
     public static Color SINT8 = Color.LightSkyBlue;
