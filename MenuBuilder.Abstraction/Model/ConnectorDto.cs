@@ -13,7 +13,7 @@ public class ConnectorDto
     public double Width { get; set; }
     public bool IsTemp { get; set; }
     public double Height { get; set; }
-
+    public bool IsTake { get; set; } = false;
     public ConnectorDto()
     {
     }
