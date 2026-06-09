@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\RadTreeView\RadTreeView.csproj" />
     <ProjectReference Include="..\MenuBuilder.Abstraction\MenuBuilder.Abstraction.csproj" />
   </ItemGroup>
 
