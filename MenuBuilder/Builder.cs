@@ -1,10 +1,9 @@
 ﻿using MenuBuilder.Abstraction;
 using MenuBuilder.Abstraction.Model;
 using Newtonsoft.Json;
-using RadTreeView;
-using RadTreeView.Commands;
 using System.IO;
-using System.Windows.Media.Imaging;
+using FluentTreeMenu.ViewModels;
+using Wpf.Ui.Controls;
 
 namespace MenuBuilder;
 
@@ -40,15 +39,12 @@ public class Builder
         _items = menuItem;
     }
 
-    public void CreateMenu(IList<RowViewModelList> parentList, RowViewModelList? topList, RadTreeViewModel owner)
+    public void CreateMenu(IList<FluentTreeMenuList> parentList, FluentTreeMenuList? topList, FluentTreeMenuViewModel owner)
     {
-        var topMenu = new RowViewModelList(_items.Fields.Count, parentList);
+        var topMenu = new FluentTreeMenuList(_items.Name, SymbolRegular.Collections24);
         topMenu.TopParent = topMenu;
         topMenu.Owner = owner;
-        topMenu.Title = _items.Name;
         topMenu.Description = _items.Description;
-        topMenu.Image = new BitmapImage(
-            new Uri("pack://application:,,,/FBDEditor;component/Assets/Project_Property_Icon.png"));
         if(topList == null)
         {
             parentList.Add(topMenu);
@@ -61,30 +57,25 @@ public class Builder
     }
 
 
-    private void CreateNode(List<MenuItemDto> dtos, IList<RowViewModelList> parentList, RowViewModelList? parent = null)
+    private void CreateNode(List<MenuItemDto> dtos, IList<FluentTreeMenuList> parentList, FluentTreeMenuList? parent = null)
     {
         foreach (var dto in dtos)
         {
             if (dto.Fields.Count == 0)
             {
-                var item = new RowViewModelItem(dtos.Count, parentList, parent);
-                item.Title = !string.IsNullOrEmpty(dto.AltName) ? dto.AltName : dto.Name;
+                var item = new FluentTreeMenuItem(!string.IsNullOrEmpty(dto.AltName) ? dto.AltName : dto.Name, SymbolRegular.ItemCompare24, dto.AddingInclude);
+                item.Parent = parent;
                 item.Description = dto.Description;
                 item.TopParent = parent?.TopParent;
-                item.Image = new BitmapImage(
-                    new Uri("pack://application:,,,/FBDEditor;component/Assets/TagItem.png"));
-                parent.AddChildrenItem(item);
+                parent?.AddChildrenItem(item);
             }
             else
             {
-                var menu = new RowViewModelList(dtos.Count, parentList, parent);
+                var menu = new FluentTreeMenuList(!string.IsNullOrEmpty(dto.AltName) ? dto.AltName : dto.Name, SymbolRegular.Collections24, dto.AddingInclude);
                 menu.TopParent = parent?.TopParent;
                 menu.Owner = parent?.Owner;
-                menu.Title = !string.IsNullOrEmpty(dto.AltName) ? dto.AltName : dto.Name;
                 menu.Description = dto.Description;
-                menu.Image = new BitmapImage(
-                    new Uri("pack://application:,,,/FBDEditor;component/Assets/Project_Property_Icon.png"));
-                parent.AddChildrenList(menu);
+                parent?.AddChildrenList(menu);
                 CreateNode(dto.Fields, parentList, menu);
             }
         }
@@ -109,6 +100,7 @@ public class Builder
             var name = Path.GetFileNameWithoutExtension(nodeFile.Name);
             current.Name = name;
             current.Title = name;
+
         }
         else
         {
