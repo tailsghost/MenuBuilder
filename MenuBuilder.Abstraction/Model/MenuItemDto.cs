@@ -2,6 +2,7 @@
 
 public class MenuItemDto
 {
+    public bool IsUnique { get; set; } = false;
     public string ParentId { get; set; } = string.Empty;
     public string Title { get;set;  } = string.Empty;
     public string Description { get; set; } = string.Empty;

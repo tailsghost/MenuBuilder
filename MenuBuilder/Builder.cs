@@ -63,7 +63,7 @@ public class Builder
         {
             if (dto.Fields.Count == 0)
             {
-                var item = new FluentTreeMenuItem(!string.IsNullOrEmpty(dto.AltName) ? dto.AltName : dto.Name, SymbolRegular.ItemCompare24, dto.AddingInclude);
+                var item = new FluentTreeMenuItem(!string.IsNullOrEmpty(dto.AltName) ? dto.AltName : dto.Name, SymbolRegular.ItemCompare24, dto.AddingInclude, dto.IsUnique);
                 item.Parent = parent;
                 item.Description = dto.Description;
                 item.TopParent = parent?.TopParent;
@@ -71,7 +71,7 @@ public class Builder
             }
             else
             {
-                var menu = new FluentTreeMenuList(!string.IsNullOrEmpty(dto.AltName) ? dto.AltName : dto.Name, SymbolRegular.Collections24, dto.AddingInclude);
+                var menu = new FluentTreeMenuList(!string.IsNullOrEmpty(dto.AltName) ? dto.AltName : dto.Name, SymbolRegular.Collections24, dto.AddingInclude, dto.IsUnique);
                 menu.TopParent = parent?.TopParent;
                 menu.Owner = parent?.Owner;
                 menu.Description = dto.Description;
