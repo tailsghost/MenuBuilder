@@ -2,6 +2,7 @@
 using MenuBuilder.Abstraction.Model;
 using Newtonsoft.Json;
 using System.IO;
+using FBDEditor.Abstractions.Model;
 using FluentTreeMenu.ViewModels;
 using Wpf.Ui.Controls;
 

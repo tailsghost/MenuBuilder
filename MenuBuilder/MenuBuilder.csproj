@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\FBDEditor\FBDEditor.Abstractions\FBDEditor.Abstractions.csproj" />
     <ProjectReference Include="..\..\FBDEditor\wpfui\src\Wpf.Ui\Wpf.Ui.csproj" />
     <ProjectReference Include="..\..\FluentTreeMenu\FluentTreeMenu.csproj" />
     <ProjectReference Include="..\MenuBuilder.Abstraction\MenuBuilder.Abstraction.csproj" />
