@@ -23,6 +23,7 @@ public static class DirectoryHelper
 
             var childDir = new MenuDirectoryInfo(dirPath);
             parent.Children.Add(childDir);
+            childDir.Parent = parent;
             Add?.Invoke(childDir);
             GetChild(childDir);
         }
@@ -33,6 +34,7 @@ public static class DirectoryHelper
             var filePath = files[i];
             var childFile = new MenuFileInfo(filePath);
             parent.Children.Add(childFile);
+            childFile.Parent = parent;
             Add?.Invoke(childFile);
         }
 

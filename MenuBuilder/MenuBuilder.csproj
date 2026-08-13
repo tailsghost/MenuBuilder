@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\FBDEditor\FBDEditor.Abstractions\FBDEditor.Abstractions.csproj" />
     <ProjectReference Include="..\..\FBDEditor\wpfui\src\Wpf.Ui\Wpf.Ui.csproj" />
     <ProjectReference Include="..\..\FluentTreeMenu\FluentTreeMenu.csproj" />

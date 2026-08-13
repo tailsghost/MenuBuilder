@@ -8,11 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\FBDEditor.Domain\FBDEditor.Domain.csproj" />
+    <ProjectReference Include="..\..\FbdEditorAPI\FBDEditor.Domain\FBDEditor.Domain.csproj" />
   </ItemGroup>
 
 </Project>
