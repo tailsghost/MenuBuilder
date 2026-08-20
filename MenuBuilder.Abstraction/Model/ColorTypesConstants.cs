@@ -40,6 +40,11 @@ public class ColorTypesConstants
          { AllowedTypeConstants.DINT, DINT },
          { AllowedTypeConstants.UDINT, UDINT },
          { AllowedTypeConstants.STRING, STRING },
-         {AllowedTypeConstants.NONE, NONE}
+         {AllowedTypeConstants.NONE, NONE},
     };
+
+    public static Color GetColor(string? type) =>
+        type != null && ColorsConvert.TryGetValue(type, out var color)
+            ? color
+            : NONE;
 }

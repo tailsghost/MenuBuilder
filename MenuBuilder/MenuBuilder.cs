@@ -147,7 +147,10 @@ public class MenuBuilder : IMenuBuilder<FluentTreeMenuList, FluentTreeMenuViewMo
             if (nodeFile != null)
             {
                 var json = System.IO.File.ReadAllText(nodeFile.Path);
-                current = JsonSerializer.Deserialize<MenuItemDto>(json)
+                current = JsonSerializer.Deserialize<MenuItemDto>(json, new JsonSerializerOptions()
+                          {
+                              PropertyNameCaseInsensitive = true
+                          })
                           ?? new MenuItemDto();
                 var name = Path.GetFileNameWithoutExtension(nodeFile.Name);
                 current.Name = name;
